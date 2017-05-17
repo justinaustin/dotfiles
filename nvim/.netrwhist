@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/jaustin/MEGA/College/CIS450/cis450-550-project/gentelella'
+let g:netrw_dirhist_2='/home/jaustin/MEGA/College/CIS450/cis450-550-project/gentelella/build'
+let g:netrw_dirhist_3='/home/jaustin/MEGA/College/CIS450/cis450-550-project/gentelella/build/css'
+let g:netrw_dirhist_4='/home/jaustin/MEGA/College/CIS450/cis450-550-project/gentelella/build'
+let g:netrw_dirhist_5='/home/jaustin/MEGA/College/CIS450/cis450-550-project/gentelella/build/js'
+let g:netrw_dirhist_6='/home/jaustin/MEGA/College/CIS450/cis450-550-project/gentelella/build'
+let g:netrw_dirhist_7='/home/jaustin/MEGA/College/CIS450/cis450-550-project/gentelella'
+let g:netrw_dirhist_8='/home/jaustin/MEGA/College/CIS450/cis450-550-project/gentelella/production'
+let g:netrw_dirhist_9='/home/jaustin/.config/nvim/plugged/YouCompleteMe'
