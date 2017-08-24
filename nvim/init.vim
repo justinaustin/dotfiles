@@ -4,23 +4,27 @@ set tabstop=4 shiftwidth=4 expandtab
 """"" Colors
 syntax enable
 
-" colorscheme molokai
+" colorscheme 
 
-colorscheme gruvbox
 set background=dark
+colorscheme gruvbox
 
 
 """"" VIM PLUG
 
 call plug#begin()
 
-Plug 'tomasr/molokai' " colorscheme
 Plug 'rust-lang/rust.vim' " Rust stuff
 Plug 'tpope/vim-commentary' " comment/uncomment text with gc
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocompletion
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " file tree
 Plug 'vim-syntastic/syntastic' " syntax checker 
 Plug 'raimondi/delimitMate' " auto closing of quotes/parens/brackets/etc
+Plug 'Yggdroot/indentLine' " vertical indentation lines
+Plug 'tpope/vim-surround' " additional surroundings
+Plug 'wellle/targets.vim' " adds more text objects
+Plug 'justinmk/vim-sneak' " new motion (s) to goto position specified by two chars
+Plug 'luochen1990/rainbow' " rainbow parens!
 
 call plug#end()
 
@@ -65,3 +69,6 @@ map <C-h> <C-w>h
 map <C-l> <C-w>l
 map <C-j> <C-w>j
 map <C-k> <C-w>k
+
+"""" Rainbow Parens
+let g:rainbow_active = 1
