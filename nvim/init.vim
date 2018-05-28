@@ -25,6 +25,7 @@ Plug 'tpope/vim-surround' " additional surroundings
 Plug 'wellle/targets.vim' " adds more text objects
 Plug 'justinmk/vim-sneak' " new motion (s) to goto position specified by two chars
 Plug 'luochen1990/rainbow' " rainbow parens!
+Plug 'gabrielelana/vim-markdown' " markdown plugin
 
 call plug#end()
 
