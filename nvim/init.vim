@@ -39,7 +39,20 @@ Plug 'vim-syntastic/syntastic' " syntax checker
 Plug 'crusoexia/vim-monokai' " colorscheme
 Plug 'joshdick/onedark.vim' " colorscheme
 Plug 'morhetz/gruvbox' " colorscheme
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'RRethy/vim-illuminate' " auto highlight words under cursor
+Plug 'Konfekt/FastFold' " fast folding
+Plug 'tmhedberg/SimpylFold' " python folding
+Plug 'ncm2/ncm2' " completion manager
+Plug 'roxma/nvim-yarp' " completion manager
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'} " languageserver client
+""" completion sources for ncm2
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-github'
+Plug 'ncm2/ncm2-tmux'
+Plug 'yuki-ycino/ncm2-dictionary'
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-racer'
 
 
 call plug#end()
@@ -72,18 +85,41 @@ map <C-k> <C-w>k
 """" Rainbow Parens
 let g:rainbow_active = 1
 
-""" Language Server
-let g:ale_completion_enabled = 1
-
-""" Flag extra whitespace as red
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
 """ Syntastic
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_chec_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-""" deoplete
-let g:deoplete#enable_at_startup = 1
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+""" ncm2
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+
+" use tab to autocomplete
+inoremap <expr> <tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+set shortmess+=c
+
+
+""" vim illuminate
+let g:Illuminate_delay = 250
+
+""" fast fold
+nmap zuz <Plug>(FastFoldUpdate)
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+let g:markdown_folding = 1
+let g:tex_fold_enabled = 1
+let g:vimsyn_folding = 'af'
+let g:xml_syntax_folding = 1
+let g:javaScript_fold = 1
+let g:sh_fold_enabled= 7
+let g:ruby_fold = 1
+let g:perl_fold = 1
+let g:perl_fold_blocks = 1
+let g:r_syntax_folding = 1
+let g:rust_fold = 1
+let g:php_folding = 1
