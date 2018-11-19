@@ -32,10 +32,8 @@ Plug 'justinmk/vim-sneak' " new motion (s) to goto position specified by two cha
 Plug 'luochen1990/rainbow' " rainbow parens!
 Plug 'gabrielelana/vim-markdown' " markdown plugin
 Plug 'w0rp/ale' " language server
-Plug 'vim-scripts/indentpython.vim' " python indentation
 Plug 'vim-airline/vim-airline' " status bar
 Plug 'plytophogy/vim-virtualenv' " python virtualenv
-Plug 'vim-syntastic/syntastic' " syntax checker
 Plug 'crusoexia/vim-monokai' " colorscheme
 Plug 'joshdick/onedark.vim' " colorscheme
 Plug 'morhetz/gruvbox' " colorscheme
@@ -45,6 +43,7 @@ Plug 'tmhedberg/SimpylFold' " python folding
 Plug 'ncm2/ncm2' " completion manager
 Plug 'roxma/nvim-yarp' " completion manager
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'} " languageserver client
+Plug 'ambv/black' " black code formatting for python
 """ completion sources for ncm2
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
@@ -85,12 +84,6 @@ map <C-k> <C-w>k
 """" Rainbow Parens
 let g:rainbow_active = 1
 
-""" Syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_chec_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 """ ncm2
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
@@ -123,3 +116,6 @@ let g:perl_fold_blocks = 1
 let g:r_syntax_folding = 1
 let g:rust_fold = 1
 let g:php_folding = 1
+
+""" Auto black format python code
+autocmd BufWritePre *.py execute ':Black'
