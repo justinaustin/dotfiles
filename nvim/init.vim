@@ -1,10 +1,9 @@
 set number
 
-au BufNewFile,BufRead *.py,*.rs
+au BufNewFile,BufRead *.py,*.rs,*.json,
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
-    \ set textwidth=79 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
@@ -43,6 +42,7 @@ Plug 'tmhedberg/SimpylFold' " python folding
 Plug 'ncm2/ncm2' " completion manager
 Plug 'roxma/nvim-yarp' " completion manager
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'} " languageserver client
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ambv/black' " black code formatting for python
 """ completion sources for ncm2
 Plug 'ncm2/ncm2-bufword'
@@ -118,4 +118,19 @@ let g:rust_fold = 1
 let g:php_folding = 1
 
 """ Auto black format python code
-autocmd BufWritePre *.py execute ':Black'
+" autocmd BufWritePre *.py execute ':Black'
+
+""" python 3 provider (for consistency across python virtualenvs)
+let g:python_host_prog = '/home/ubuntu/anaconda3/bin//python'
+let g:python3_host_prog = '/home/ubuntu/anaconda3/bin//python3'
+
+""" Black python config
+let g:black_linelength = 100
+
+""" Ale Linters Config
+let g:ale_linters = {
+\ 'python': ['black', 'isort', 'mypy']
+\}
+
+""" No auto line breaks
+set textwidth=0
