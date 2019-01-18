@@ -24,7 +24,6 @@ Plug 'rust-lang/rust.vim' " Rust stuff
 Plug 'tpope/vim-commentary' " comment/uncomment text with gc
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " file tree
 Plug 'raimondi/delimitMate' " auto closing of quotes/parens/brackets/etc
-Plug 'Yggdroot/indentLine' " vertical indentation lines
 Plug 'tpope/vim-surround' " additional surroundings
 Plug 'wellle/targets.vim' " adds more text objects
 Plug 'justinmk/vim-sneak' " new motion (s) to goto position specified by two chars
