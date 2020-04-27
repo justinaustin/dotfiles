@@ -122,7 +122,17 @@ export LS_COLORS
 PS1='\e[37;1m\u@\e[35m\W\e[0m\$ ' # this will change your prompt format']]]'
 
 GIT_PROMPT_ONLY_IN_REPO=1
-source ~/.bash-git-prompt/gitprompt.sh
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  GIT_PROMPT_ONLY_IN_REPO=1
+  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi
 
 # fixes gpg2 git commit signing error
 export GPG_TTY=$(tty)
+
+alias ls="exa"
+alias tmux="TERM=screen-256color-bce tmux"
+
+alias klint="python ~/Projects/zentreefish/projects/lint/app/gbin/ztf_lint.py --fix"
+
